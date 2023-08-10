@@ -1,0 +1,123 @@
+@import 'variables';
+@import 'mixins';
+
+.addtask__btn{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    font-size: 1.6rem;
+    @include btn;
+
+    @media (min-width: 1024px){
+        width: 40%;
+    }
+}
+
+.addtask{
+  @include bgc_form;
+
+  &__form{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    right: 10%;
+    bottom: 20%;
+    min-height: 300px;
+    background-color: #F5EFE7;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    &.darkmode{
+        background-color: #080202;
+        border-color: white;
+    }
+
+    @media (min-width: 781px){
+        right: 20%;
+        left: 20%;
+        bottom: 20%;
+    }
+
+    @media (min-width: 1024px){
+        right: 25%;
+        left: 25%;
+        bottom: 30%;
+    }
+
+    .addtask__xmark{
+      @include xmark
+    }
+
+    .addtask__title{
+       @include formTitle
+    }
+
+    .addtask__input, .addtask__select, .addtask__calendar{
+        position: relative;
+        width: 80%;
+        left: 20%;
+        transform: translateX(-20%);
+        margin-top: 3%;
+        font-size: 1.2rem;
+        font-weight: bold;
+
+        &.darkmode{
+            input, select{
+                background-color: #213555;
+                color: white;
+            }
+        }
+
+        input, select{
+            padding: $spacing /4 2px;
+            border: none;
+            border-bottom: 2px solid gray;
+
+            &:focus{
+                border: none;
+                border-bottom: 2px solid rgb(101, 198, 230);
+                outline: none;
+            }
+        }
+    }
+
+    .addtask__submit{
+        position: absolute;
+        bottom: 10%;
+        left: 20%;
+        right: 20%;
+        padding: $spacing / 2 0;
+        @include btn;
+    }
+  }
+}
+
+.addtask__confirm{
+    position: fixed;
+    bottom: 60px;
+    background-color: lightgreen;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    animation: addTaskAnimation 3s linear both;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+@keyframes addTaskAnimation{
+    0%{
+        right: -40%;
+    }
+    15%{
+        right: 40px;
+    }
+
+    85%{
+        right: 40px;
+    }
+
+    100%{
+        right: -40%;
+    }
+}

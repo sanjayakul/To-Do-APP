@@ -1,0 +1,108 @@
+@import 'variables';
+
+html{
+    font-size: 10px;
+    font-family: $fontfamily;
+}
+
+body{
+   background-image: url(../assets/bg.jpg);
+   background-size: cover;
+   background-repeat: repeat;
+   background-position: center;
+
+   &.darkmode{
+    color: white;
+   }
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: -1;
+}
+
+body.darkmode::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.80);
+    z-index: -1;
+}
+
+.todo{
+    display: flex;
+    flex-direction: column;
+    margin: $spacing 40px;
+    background-color: $app-container;
+    border: 4px solid #001C30;
+    border-radius: 5px;
+
+    &.darkmode{
+        background-color: darken($color: $app-container, $amount: 95%);
+        border-color: lighten($color: #001C30, $amount: 90%)
+    }
+
+    @media (min-width: 781px){
+        width: 75%;
+        margin: $spacing auto 75px auto;
+    }
+
+    @media(min-width: 1024px){
+        width: 55%;
+    }
+
+    &__title{
+        text-align: center;
+        font-size: 2.2rem;
+        margin: $spacing 0;
+        font-family: $special-fontfamily;
+
+        .todo__icon{
+            position: relative;
+            top: 7px;
+            height: 33px;
+
+            @media (min-width: 781px){
+               height: 38px;
+            }
+
+            @media (min-width: 781px){
+                height: 45px;
+             }
+        }
+
+        @media (min-width: 781px){
+            font-size: 3rem;
+        }
+
+        @media (min-width: 1024px){
+            font-size: 3.8rem;
+        }
+    }
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color:black;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.3rem;
+
+    a{
+        color: blue
+    }
+}
